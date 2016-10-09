@@ -1,0 +1,51 @@
+shell %%PREFIX%%/lib/urxvtq/bash
+
+term screen-256color
+defutf8 on
+
+altscreen on
+
+# Enable mousewheel scrolling
+termcapinfo * ti@:te@
+
+hardstatus alwayslastline "%{Wk}%-Lw%50>%{kW}%n*%f %t%{Wk}%+Lw%<"
+
+# Automatic window title
+shelltitle '$ |bash'
+
+# Inconvenient escape key, to avoid accidental triggering or make nested
+# screens behave nicer
+escape ^``
+
+# Remove all default key bindings
+unbindall
+
+# C-PgUp / C-PgDn
+bindkey "^[[5\^" prev
+bindkey "^[[6\^" next
+
+# C-S-PgUp / C-S-PgDn
+bindkey "^[[5@" bumpleft
+bindkey "^[[6@" bumpright
+
+# S-PgUp / S-PgDn. This enters copy mode. Press ESC to leave.
+bindkey "^[[5$" eval "copy" "stuff ^b"
+bindkey "^[[6$" eval "copy" "stuff ^f"
+
+# M-^ / M-1 .. M-0
+bindkey "^[\^" other
+bindkey "^[1" select 1
+bindkey "^[2" select 2
+bindkey "^[3" select 3
+bindkey "^[4" select 4
+bindkey "^[5" select 5
+bindkey "^[6" select 6
+bindkey "^[7" select 7
+bindkey "^[8" select 8
+bindkey "^[9" select 9
+bindkey "^[0" select 10
+
+# Start at 1, not on 0. This is so the digit-binds from above can be directly
+# mapped to physical keyboards, with 1 being leftmost and 0 being rightmost.
+bindkey "^T" screen 1
+screen 1

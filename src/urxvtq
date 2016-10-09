@@ -1,0 +1,44 @@
+#!/bin/bash
+
+fix_position() {
+    local wid="$1"
+    xdotool windowmove "$wid" x 0
+    wmctrl -i -r "$wid" -b remove,maximized_horz
+    wmctrl -i -r "$wid" -b add,maximized_horz
+    screen -S urxvtq -X redisplay
+}
+
+show_window() {
+    local wid="$1"
+    xdotool windowmap "$wid"
+    fix_position "$wid"
+    transset --id "$wid" 0.85
+    xdotool windowfocus "$wid"
+}
+
+hide_window() {
+    local wid="$1"
+    xdotool windowunmap "$wid"
+}
+
+wid=$(xdotool search --classname urxvtq)
+if [ -z "$wid" ]; then
+    screen -d -m -S urxvtq -c %%PREFIX%%/lib/urxvtq/screenrc
+    if pgrep urxvtd >/dev/null; then
+        _term=urxvtc
+    else
+        _term=urxvt
+    fi
+    $_term -name urxvtq +icon \
+        -keysym.S-Next builtin-string: \
+        -keysym.S-Prior builtin-string: \
+        -e screen -r urxvtq
+    wid=$(xdotool search --limit 1 --sync --classname urxvtq)
+    show_window "$wid"
+else
+    if [ -z "$(xdotool search --onlyvisible --classname urxvtq)" ]; then
+        show_window "$wid"
+    else
+        hide_window "$wid"
+    fi
+fi

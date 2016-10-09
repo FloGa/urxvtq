@@ -1,0 +1,5 @@
+unset STY
+export IN_URXVTQ=1
+
+SHELL=/bin/bash
+bash -i
