@@ -1,3 +1,5 @@
+# Changes in 0.1.2
+
 # Changes in 0.1.1
 
 -   Rename PREFIX variable with DESTDIR
