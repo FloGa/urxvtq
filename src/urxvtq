@@ -23,7 +23,7 @@ hide_window() {
 
 wid=$(xdotool search --classname urxvtq)
 if [ -z "$wid" ]; then
-    screen -d -m -S urxvtq -c %%PREFIX%%/lib/urxvtq/screenrc
+    screen -d -m -S urxvtq -c %%DESTDIR%%/lib/urxvtq/screenrc
     if pgrep urxvtd >/dev/null; then
         _term=urxvtc
     else

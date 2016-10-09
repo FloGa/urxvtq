@@ -1,4 +1,4 @@
-shell %%PREFIX%%/lib/urxvtq/bash
+shell %%DESTDIR%%/lib/urxvtq/bash
 
 term screen-256color
 defutf8 on
