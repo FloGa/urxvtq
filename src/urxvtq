@@ -2,7 +2,7 @@
 
 fix_position() {
     local wid="$1"
-    xdotool windowmove "$wid" x 0
+    xdotool windowmove --sync "$wid" x 0
     wmctrl -i -r "$wid" -b remove,maximized_horz
     wmctrl -i -r "$wid" -b add,maximized_horz
     screen -S urxvtq -X redisplay
@@ -10,15 +10,15 @@ fix_position() {
 
 show_window() {
     local wid="$1"
-    xdotool windowmap "$wid"
+    xdotool windowmap --sync "$wid"
     fix_position "$wid"
     transset --id "$wid" 0.85
-    xdotool windowfocus "$wid"
+    xdotool windowfocus --sync "$wid"
 }
 
 hide_window() {
     local wid="$1"
-    xdotool windowunmap "$wid"
+    xdotool windowunmap --sync "$wid"
 }
 
 wid=$(xdotool search --classname urxvtq)
