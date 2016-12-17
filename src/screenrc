@@ -45,6 +45,18 @@ bindkey "^[8" select 8
 bindkey "^[9" select 9
 bindkey "^[0" select 10
 
+# M-S-1 .. M-S-0: Swap with window
+bindkey "^[!" number 1
+bindkey "^[\"" number 2
+bindkey "^[§" number 3
+bindkey "^[$" number 4
+bindkey "^[%" number 5
+bindkey "^[&" number 6
+bindkey "^[/" number 7
+bindkey "^[(" number 8
+bindkey "^[)" number 9
+bindkey "^[=" number 10
+
 # Start at 1, not on 0. This is so the digit-binds from above can be directly
 # mapped to physical keyboards, with 1 being leftmost and 0 being rightmost.
 bindkey "^T" screen 1
