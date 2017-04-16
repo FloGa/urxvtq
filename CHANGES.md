@@ -1,4 +1,32 @@
-# Changes since latest release
+# Changes in 0.2.0
+
+-   Call xdotool synchronously
+
+    This ensures that the window operation is finished before continuing.
+
+-   Support swapping with specified window
+
+-   Remove needless call to wmctrl
+
+    The remove-add-chain of maximized_horz causes a blank window an Awesome
+    4.1. Thus, I removed the remove-call and hope that the add-call is
+    enough.
+
+-   Fix transparency
+
+    The transparency will not be applyed properly if set *after* mapping the
+    window.
+
+-   Remove needless interactive flag
+
+    If bash was called without parameters, it is interactive anyway.
+
+-   Add support for a config file
+
+    At the moment, it only supports transparency configuration, but can be
+    extended in the future.
+
+-   Set transparency quietly
 
 # Changes in 0.1.2
 
