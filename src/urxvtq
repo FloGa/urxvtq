@@ -9,9 +9,9 @@ fix_position() {
 
 show_window() {
     local wid="$1"
+    transset --id "$wid" 0.85
     xdotool windowmap --sync "$wid"
     fix_position "$wid"
-    transset --id "$wid" 0.85
     xdotool windowfocus --sync "$wid"
 }
 
