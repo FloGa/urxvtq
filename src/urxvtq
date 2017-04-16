@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Default values for config parameters
-DEF_TRANSPARENCY_ENABLED=1
-DEF_TRANSPARENCY_VALUE=0.85
+readonly DEF_TRANSPARENCY_ENABLED=1
+readonly DEF_TRANSPARENCY_VALUE=0.85
 
 [ -r "$HOME/.config/urxvtq.conf" ] && source "$HOME/.config/urxvtq.conf"
 
