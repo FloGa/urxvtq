@@ -3,7 +3,6 @@
 fix_position() {
     local wid="$1"
     xdotool windowmove --sync "$wid" x 0
-    wmctrl -i -r "$wid" -b remove,maximized_horz
     wmctrl -i -r "$wid" -b add,maximized_horz
     screen -S urxvtq -X redisplay
 }
