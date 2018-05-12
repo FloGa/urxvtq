@@ -1,3 +1,24 @@
+# Changes in 0.3.0
+
+-   Focus window before moving it
+
+-   Use activate instead of focus
+
+    This is recommended by xdotools, since it seems to be better supported
+    by window managers.
+
+-   Replace -z tests with !
+
+-   Re-attach a detached session
+
+    If the window is closed, the screen session is automatically detached.
+    If a new window will be created, then it will re-attach the session,
+    maybe detaching it beforehand or creating a new session.
+
+    This also fixes a problem where there could be multiple instances of
+    urxvtq. When a session is detached, the containing window will be closed
+    automatically.
+
 # Changes in 0.2.0
 
 -   Call xdotool synchronously

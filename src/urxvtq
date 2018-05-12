@@ -22,8 +22,8 @@ show_window() {
     [ "$TRANSPARENCY_ENABLED" = 1 ] && \
         transset --id "$wid" "$TRANSPARENCY_VALUE" >/dev/null
     xdotool windowmap --sync "$wid"
+    xdotool windowactivate --sync "$wid"
     fix_position "$wid"
-    xdotool windowfocus --sync "$wid"
 }
 
 hide_window() {
@@ -32,8 +32,7 @@ hide_window() {
 }
 
 wid=$(xdotool search --classname urxvtq)
-if [ -z "$wid" ]; then
-    screen -d -m -S urxvtq -c %%DESTDIR%%/lib/urxvtq/screenrc
+if [ ! "$wid" ]; then
     if pgrep urxvtd >/dev/null; then
         _term=urxvtc
     else
@@ -42,11 +41,12 @@ if [ -z "$wid" ]; then
     $_term -name urxvtq +icon \
         -keysym.S-Next builtin-string: \
         -keysym.S-Prior builtin-string: \
-        -e screen -r urxvtq
+        -e screen -dRR urxvtq -c %%DESTDIR%%/lib/urxvtq/screenrc
+
     wid=$(xdotool search --limit 1 --sync --classname urxvtq)
     show_window "$wid"
 else
-    if [ -z "$(xdotool search --onlyvisible --classname urxvtq)" ]; then
+    if [ ! "$(xdotool search --onlyvisible --classname urxvtq)" ]; then
         show_window "$wid"
     else
         hide_window "$wid"
