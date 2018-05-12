@@ -22,8 +22,8 @@ show_window() {
     [ "$TRANSPARENCY_ENABLED" = 1 ] && \
         transset --id "$wid" "$TRANSPARENCY_VALUE" >/dev/null
     xdotool windowmap --sync "$wid"
-    fix_position "$wid"
     xdotool windowfocus --sync "$wid"
+    fix_position "$wid"
 }
 
 hide_window() {
