@@ -33,7 +33,6 @@ hide_window() {
 
 wid=$(xdotool search --classname urxvtq)
 if [ ! "$wid" ]; then
-    screen -d -m -S urxvtq -c %%DESTDIR%%/lib/urxvtq/screenrc
     if pgrep urxvtd >/dev/null; then
         _term=urxvtc
     else
@@ -42,7 +41,8 @@ if [ ! "$wid" ]; then
     $_term -name urxvtq +icon \
         -keysym.S-Next builtin-string: \
         -keysym.S-Prior builtin-string: \
-        -e screen -r urxvtq
+        -e screen -dRR urxvtq -c %%DESTDIR%%/lib/urxvtq/screenrc
+
     wid=$(xdotool search --limit 1 --sync --classname urxvtq)
     show_window "$wid"
 else
