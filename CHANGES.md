@@ -1,3 +1,9 @@
+# Changes in 0.4.0
+
+-   Re-bind Esc and Colon
+
+    For more flexibility, make Copy mode and Command mode accessible again.
+
 # Changes in 0.3.0
 
 -   Focus window before moving it
