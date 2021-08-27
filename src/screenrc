@@ -20,6 +20,10 @@ escape ^``
 # Remove all default key bindings
 unbindall
 
+# Re-bind Esc and :
+bind '' copy
+bind ':' colon
+
 # C-PgUp / C-PgDn
 bindkey "^[[5\^" prev
 bindkey "^[[6\^" next
