@@ -11,7 +11,7 @@ termcapinfo * ti@:te@
 hardstatus alwayslastline "%{Wk}%-Lw%50>%{kW}%n*%f %t%{Wk}%+Lw%<"
 
 # Automatic window title
-shelltitle '$ |bash'
+shelltitle ' |bash'
 
 # Inconvenient escape key, to avoid accidental triggering or make nested
 # screens behave nicer
