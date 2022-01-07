@@ -1,4 +1,10 @@
-# Changes since latest release
+# Changes in 0.5.0
+
+-   Generalize shelltitle
+
+    As long as the shell title escape is right before the last whitespace
+    character, it does not matter what the actual prompt looks like, the
+    command will always be matched after the whitespace.
 
 # Changes in 0.4.0
 
